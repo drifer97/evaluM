@@ -59,23 +59,11 @@ Abaixo está o gráfico da curva ROC para este modelo:
 
 
 
-```python
-import matplotlib.pyplot as plt
-from sklearn.metrics import roc_curve, auc
+O gráfico da curva ROC mostra como o modelo ajusta suas decisões entre "Gato" e "Cachorro".
 
-# Supondo que você tenha as variáveis 'y_test' (rótulos reais) e 'y_score' (probabilidades preditas)
-fpr, tpr, thresholds = roc_curve(y_test, y_score)
-roc_auc = auc(fpr, tpr)
-
-plt.figure()
-plt.plot(fpr, tpr, color='darkorange', lw=2, label=f'ROC curve (AUC = {roc_auc:.2f})')
-plt.plot([0, 1], [0, 1], color='navy', lw=2, linestyle='--')
-plt.xlim([0.0, 1.0])
-plt.ylim([0.0, 1.05])
-plt.xlabel('Taxa de Falsos Positivos (FPR)')
-plt.ylabel('Taxa de Verdadeiros Positivos (TPR)')
-plt.title('Curva ROC')
-plt.legend(loc='lower right')
-plt.show()
+O eixo Y mede a taxa de acertos (quantos gatos o modelo identificou corretamente).
+O eixo X mede a taxa de erros (quantos cachorros foram classificados como gatos).
+A linha azul mostra o desempenho do modelo, que é muito bom, pois fica longe da linha cinza (classificação aleatória).
+Com um valor AUC = 0.98, o modelo acerta na maioria das vezes, o que indica uma separação quase perfeita entre gatos e cachorros.
 
  
